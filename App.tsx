@@ -24,9 +24,13 @@ const App = () => {
   return (
     <PaperProvider theme={theme}>
       <SafeAreaView style={styles.container}>
-      <Text>Current tracking status:</Text>
-      <Text style={styles.status}>[{status}]</Text>
-        <Button disabled={status !== 'not-determined'} style={styles.action} mode="contained" onPress={requestPermission}>
+        <Text>Current tracking status:</Text>
+        <Text style={styles.status}>[{status}]</Text>
+        <Button
+          onPress={requestPermission}
+          disabled={status !== 'not-determined'}
+          style={styles.action}
+          mode="contained">
           Request permission
         </Button>
       </SafeAreaView>
@@ -42,7 +46,8 @@ const styles = StyleSheet.create({
   },
   status: {
     color: 'red',
-    marginBottom: 20,
+    fontWeight: 'bold',
+    marginVertical: 20,
   },
   action: {
     marginBottom: 20,
