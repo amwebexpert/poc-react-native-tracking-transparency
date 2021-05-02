@@ -6,7 +6,7 @@
 
 # Code sample
 
-* see detail of [App.tsx](./App.tsx)
+* see full code here: [App.tsx](./App.tsx)
 
 <div align="center">
   <img src="docs/screen-captures/demo-tracking-transparency-code.png" />
