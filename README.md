@@ -4,13 +4,46 @@
 * Apple [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency)
 
 
-# Code sample
+# Usage
+
+```ts
+const App = () => {
+  const theme = useTheme();
+  const [status, setStatus] = React.useState('');
+
+  React.useEffect(() => {
+    const retrieveCurrentStatus = async () => {
+      const trackingStatus = await getTrackingStatus();
+      setStatus(trackingStatus);
+    };
+
+    retrieveCurrentStatus();
+  }, []);
+
+  const requestPermission = async () => {
+    const trackingStatus = await requestTrackingPermission();
+    setStatus(trackingStatus);
+  };
+
+  return (
+    <PaperProvider theme={theme}>
+      <SafeAreaView style={styles.container}>
+        <Text>Current tracking status:</Text>
+        <Text style={styles.status}>[{status}]</Text>
+        <Button
+          onPress={requestPermission}
+          disabled={status !== 'not-determined'}
+          style={styles.action}
+          mode="contained">
+          Request permission
+        </Button>
+      </SafeAreaView>
+    </PaperProvider>
+  );
+};
+```
 
 * see full code here: [App.tsx](./App.tsx)
-
-<div align="center">
-  <img src="docs/screen-captures/demo-tracking-transparency-code.png" />
-</div>
 
 # Demo screen capture for Android:
 
