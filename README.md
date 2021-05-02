@@ -4,6 +4,14 @@
 * Apple [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency)
 
 
+# Code sample
+
+* see detail of [App.tsx](./App.tsx)
+
+<div align="center">
+  <img width="300px" src="docs/screen-captures/demo-tracking-transparency-code.png" />
+</div>
+
 # Demo screen capture for Android:
 
 <div align="center">
