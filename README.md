@@ -4,19 +4,17 @@
 * Apple [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency)
 
 
-# Demo
-
-Some screen captures:
+# Demo screen capture for Android:
 
 <div align="center">
-  <span>Android beharior:</span>
-  <img src="docs/screen-captures/demo-tracking-transparency-android.jpg" />
+  <img width="300px" src="docs/screen-captures/demo-tracking-transparency-android.jpg" />
+</div>
 
-  <br />
-  <br />
-  <span>iOS Authorize & Deny behavior:</span>
-  <img src="docs/screen-captures/demo-tracking-transparency-authorize.gif" />
-  <img src="docs/screen-captures/demo-tracking-transparency-deny.gif" />
+## Demo screen captures for iOS:
+
+<div align="center">
+  <img width="300px" src="docs/screen-captures/demo-tracking-transparency-authorize.gif" />
+  <img width="300px" src="docs/screen-captures/demo-tracking-transparency-deny.gif" />
 </div>
 
 # Setup instructions
