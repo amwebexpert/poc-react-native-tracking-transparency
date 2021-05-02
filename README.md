@@ -10,8 +10,9 @@
 
 # Execution instructions
 
-- `npx react-native run-android`
 - `npx react-native start`
+- `npx react-native run-android`
+- `npx react-native run-ios`
 
 # Running unit tests
 

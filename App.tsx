@@ -1,23 +1,34 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider, Title, useTheme } from 'react-native-paper';
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'red',
-    accent: 'lightgrey',
-  },
-};
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {Button, Provider as PaperProvider, Text, useTheme} from 'react-native-paper';
+import {getTrackingStatus, requestTrackingPermission} from 'react-native-tracking-transparency';
 
 const App = () => {
   const theme = useTheme();
+  const [status, setStatus] = React.useState('');
+
+  React.useEffect(() => {
+    const retrieveCurrentStatus = async () => {
+      const trackingStatus = await getTrackingStatus();
+      setStatus(trackingStatus);
+    };
+
+    retrieveCurrentStatus();
+  }, []);
+
+  const requestPermission = async () => {
+    const trackingStatus = await requestTrackingPermission();
+    setStatus(trackingStatus);
+  };
 
   return (
     <PaperProvider theme={theme}>
       <SafeAreaView style={styles.container}>
-        <Title style={styles.title}>Welcome to unit tested app!</Title>
+      <Text>Current tracking status:</Text>
+      <Text style={styles.status}>[{status}]</Text>
+        <Button disabled={status !== 'not-determined'} style={styles.action} mode="contained" onPress={requestPermission}>
+          Request permission
+        </Button>
       </SafeAreaView>
     </PaperProvider>
   );
@@ -29,12 +40,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    color: theme.colors.primary,
-    backgroundColor: theme.colors.accent,
-    borderWidth: 1,
-    borderColor: theme.colors.primary,
-    padding: 20,
+  status: {
+    color: 'red',
+    marginBottom: 20,
+  },
+  action: {
+    marginBottom: 20,
   },
 });
 
